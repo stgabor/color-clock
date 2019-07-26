@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by stgabor (http://jsbin.com/qapagom/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="Color Clock">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Color Clock</title>
+<style id="jsbin-css">
+* { 
+  margin: 0; padding: 0;
+}
+
+body, html {
+  height: 100%;
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 32px;
+  margin-top: -16px;
+}
+</style>
+</head>
+<body>
+  <div id="clock">12:13:14
+  </div>
+<script id="jsbin-javascript">
+function colorClock(){
+
+var date = new Date();
+
+var hours = date.getHours();
+if (hours < 10) {
+  hours = '0' + hours;
+}
+
+var minutes = date.getMinutes();
+if (minutes < 10) {
+  minutes = '0' + minutes;
+}
+
+var seconds = date.getSeconds();
+if (seconds < 10) {
+  seconds = '0' + seconds;
+}
+
+var hexColor = '#' + hours + minutes + seconds;  
+  
+var clockFace = hours+':'+minutes+':'+seconds;
+
+console.log(clockFace);
+
+document.getElementById('clock').innerHTML = clockFace;
+
+setTimeout(function() {
+  colorClock();
+}, 1000);
+  
+document.body.style.background = hexColor;  
+  
+}
+
+colorClock();
+
+
+
+
+
+</script>
+</body>
+</html>
